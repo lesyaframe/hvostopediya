@@ -376,8 +376,8 @@ header nav a.on{background:var(--milk);color:var(--ink)}
 /* ---------- плашка создательниц у названия ---------- */
 .dog-m,.made-m{display:none}
 .t-row{display:flex;align-items:center;justify-content:space-between;gap:clamp(12px,2vw,28px)}
-.made{flex:none;margin-right:6px;background:var(--paper);border-radius:22px 22px 22px 6px;padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;transform:rotate(-4deg) translateY(-6%);box-shadow:0 16px 30px -18px rgba(43,30,23,.45);transition:transform .35s;position:relative;z-index:4}
-.made:hover{transform:rotate(0) translateY(-8%)}
+.made{flex:none;margin-right:6px;background:var(--paper);border-radius:22px 22px 22px 6px;padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;transform:rotate(-4deg) translateY(2%);box-shadow:0 16px 30px -18px rgba(43,30,23,.45);transition:transform .35s;position:relative;z-index:4}
+.made:hover{transform:rotate(0) translateY(0)}
 .made .lbl{color:var(--ink2);font-size:11px}
 .made a{display:flex;align-items:center;gap:8px;font:500 14.5px/1.2 var(--sans);transition:color .2s}
 .made a:hover{color:var(--caramel)}
@@ -626,7 +626,7 @@ footer{background:var(--caramel);color:var(--ink);border-radius:var(--r);padding
 @media (max-width:760px){
   .h-top .made{display:none}
   .h-top{padding-bottom:0}
-  .h-right{overflow:hidden!important;padding:16px 16px 9px!important;display:flex!important;align-items:flex-end!important;justify-content:flex-start!important;min-height:200px}
+  .h-right{overflow:hidden!important;padding:16px!important;display:flex!important;align-items:flex-end!important;justify-content:flex-start!important;min-height:200px}
   .h-right .dogbox{display:none}
   .dog-m{display:block;position:absolute;right:0;top:0;bottom:0;width:84%;overflow:hidden;border-radius:0 0 var(--r) 0;pointer-events:none}
   .dog-m img{position:absolute;top:0;left:0;width:100%;filter:drop-shadow(0 16px 20px rgba(43,30,23,.25))}
