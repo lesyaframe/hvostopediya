@@ -378,6 +378,9 @@ header nav a.on{background:var(--milk);color:var(--ink)}
 .t-row{display:flex;align-items:center;justify-content:space-between;gap:clamp(12px,2vw,28px)}
 .made{flex:none;margin-right:6px;background:var(--paper);border-radius:22px 22px 22px 6px;padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;transform:rotate(-4deg) translateY(2%);box-shadow:0 16px 30px -18px rgba(43,30,23,.45);transition:transform .35s;position:relative;z-index:4}
 .made:hover{transform:rotate(0) translateY(0)}
+.made-x{position:absolute;right:clamp(20px,3vw,44px);z-index:6}
+@media (min-width:981px){.t-row .made{visibility:hidden}}
+@media (max-width:980px){.made-x{display:none}}
 .made .lbl{color:var(--ink2);font-size:11px}
 .made a{display:flex;align-items:center;gap:8px;font:500 14.5px/1.2 var(--sans);transition:color .2s}
 .made a:hover{color:var(--caramel)}
@@ -1989,6 +1992,10 @@ function home(){
           <a href="https://instagram.com/lesya.frame" target="_blank" rel="noopener"><i style="background:var(--sage)">${PAW}</i>@lesya.frame</a>
         </div></div>
     </div>
+    <div class="made made-x"><span class="lbl">придумали и&nbsp;собрали</span>
+          <a href="https://instagram.com/mom_chiwawa" target="_blank" rel="noopener"><i style="background:var(--caramel)">${PAW}</i>@mom_chiwawa</a>
+          <a href="https://instagram.com/lesya.frame" target="_blank" rel="noopener"><i style="background:var(--sage)">${PAW}</i>@lesya.frame</a>
+        </div>
     <div class="h-bot">
       <div class="pan h-left">
         <div class="stats st-l">
@@ -2211,7 +2218,9 @@ function render(){
   }
 }
 
-function placeDog(){
+function placeMade(){const x=$('.made-x'),t=$('.hero .h-top'),m=$('.t-row .made');if(!x||!t||!m||getComputedStyle(x).display==='none')return;
+  const hb=$('.hero').getBoundingClientRect(),tr=t.getBoundingClientRect();x.style.top=(tr.bottom-hb.top-x.offsetHeight*0.42)+'px';x.style.right=(hb.right-m.getBoundingClientRect().right)+'px'}
+function placeDog(){placeMade();
   const slot=$('.dslot'),box=$('.hero .dogbox'),hero=$('.hero');
   if(!slot||!box)return;
   if(getComputedStyle(slot).display==='none'){box.removeAttribute('style');return}
