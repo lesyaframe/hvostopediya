@@ -2051,6 +2051,8 @@ function home(){
     </div>
   </section>
 
+  ${lesliePromo()}
+
   <section class="pan blk intro" id="nachalo">
     <div class="in-q rv">
       <div class="lbl" style="color:var(--caramel)">С&nbsp;чего начать</div>
@@ -2066,8 +2068,6 @@ function home(){
     <div class="blk-head rv"><div><div class="lbl" style="color:var(--caramel);margin-bottom:14px">Разделы</div><h2 class="h2">Всё о&nbsp;жизни <span class="pill">с&nbsp;собакой</span><br>по&nbsp;<span class="pill sg">полочкам</span></h2></div><p>Выберите тему и&nbsp;найдите материал по&nbsp;своему вопросу. Разделы постепенно наполняются</p></div>
     <div class="tiles">${cards()}</div>
   </section>
-
-  ${lesliePromo()}
 
   <section class="pan blk" style="background:var(--sage2)">
     <div class="blk-head rv"><div><div class="lbl" style="color:var(--sage);margin-bottom:14px">Свежее в базе</div><h2 class="h2">Начните <span class="pill cr">с&nbsp;адаптации</span></h2></div><a class="btn soft" href="#/r/adaptaciya">Весь раздел <span class="ar">${ARR}</span></a></div>
@@ -2111,8 +2111,8 @@ function sectionPage(id){
   const list=bySec(id), i=GRID.findIndex(s=>s[0]===id);
   const others=SECTIONS.filter(s=>s[0]!==id&&bySec(s[0]).length).concat(SECTIONS.filter(s=>s[0]!==id&&!bySec(s[0]).length)).slice(0,7);
   return `<section class="sec-top"><div class="pan"><div class="crumbs"><a href="#/">Хвостопедия</a><span>/</span><a href="#/razdely">Разделы</a></div><div class="lbl" style="color:var(--caramel);margin-bottom:14px">${i<0?'Вступление':'Раздел '+String(i+1).padStart(2,'0')+'/'}</div><h1 class="page-title">${t}</h1><div class="facts"><span>${cnt(list.length)}</span></div></div><div class="sec-img">${media(id)}</div></section>
-  <section class="pan blk">${list.length||SUBS[id]?subBlock(id,list):`<div class="soon rv"><div><h3>Материалы скоро появятся</h3><p>Мы собираем статьи специалистов для этого раздела</p></div><a class="btn" href="#/razdely">Все разделы <span class="ar">${ARR}</span></a></div>`}
   ${id==='pitanie'?lesliePromo():''}
+  <section class="pan blk">${list.length||SUBS[id]?subBlock(id,list):`<div class="soon rv"><div><h3>Материалы скоро появятся</h3><p>Мы собираем статьи специалистов для этого раздела</p></div><a class="btn" href="#/razdely">Все разделы <span class="ar">${ARR}</span></a></div>`}
   <div class="next-secs rv">${others.map(([sid,st])=>`<a class="chip" href="#/r/${sid}">${st}</a>`).join('')}</div></section>${footer()}`;
 }
 
