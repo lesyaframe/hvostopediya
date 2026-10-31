@@ -655,7 +655,7 @@ footer{background:var(--caramel);color:var(--ink);border-radius:var(--r);padding
 .promo h2{font-family:Literata,serif;font-size:clamp(30px,3.2vw,48px);font-weight:500;line-height:1.12;margin:0 0 18px}
 .promo-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .promo-code{font:600 24px Onest,sans-serif;background:var(--ink);color:var(--paper);border-radius:12px;padding:10px 20px;letter-spacing:.03em}
-.promo-photo{width:100%;height:100%;object-fit:cover;object-position:65% 50%;min-height:235px}
+.promo-photo{width:100%;height:100%;object-fit:contain;background:#efcc99;object-position:50% 50%;min-height:235px}
 .promo-hint{font-size:15px}.promo .btn{font-size:15px}
 @media(max-width:600px){.promo{grid-template-columns:1fr}.promo-photo{display:none}.promo-copy{padding:24px}.promo-actions{gap:12px}.promo h2{font-size:32px}.promo-hint{flex-basis:100%}.promo .btn{padding:12px 18px}}
 
@@ -1995,7 +1995,7 @@ function footer(){
 }
 
 /* ---------- страницы ---------- */
-function lesliePromo(){return `<section class="pan promo" aria-label="Скидка на лакомства Leslie goods"><div class="promo-copy"><div class="promo-brand">Хвостопедия × Leslie goods</div><h2>−15% на&nbsp;лакомства</h2><div class="promo-actions"><span class="promo-hint">По&nbsp;промокоду</span><span class="promo-code">xvost</span><a class="btn car" href="https://lesligoods.ru/" target="_blank" rel="noopener">В&nbsp;магазин <span class="ar">${ARR}</span></a></div></div><img class="promo-photo" src="img/m/leslie-1.webp" alt="Лакомства Leslie goods" loading="lazy"></section>`}
+function lesliePromo(){return `<section class="pan promo" aria-label="Скидка на лакомства Leslie goods"><div class="promo-copy"><div class="promo-brand">Хвостопедия × Leslie goods</div><h2>−15% на&nbsp;лакомства</h2><div class="promo-actions"><span class="promo-hint">По&nbsp;промокоду</span><span class="promo-code">xvost</span><a class="btn car" href="https://lesligoods.ru/" target="_blank" rel="noopener">В&nbsp;магазин <span class="ar">${ARR}</span></a></div></div><img class="promo-photo" src="img/m/leslie-0.webp" alt="Лакомства Leslie goods" loading="lazy"></section>`}
 
 function home(){
   const chips=['адаптация','первое время','стресс','прогулки','сон'];
