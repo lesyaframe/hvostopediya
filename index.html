@@ -648,17 +648,14 @@ footer{background:var(--caramel);color:var(--ink);border-radius:var(--r);padding
 @media (max-width:400px){header nav a{padding:8px 9px}.logo{font-size:16px;margin-right:4px}.nav-search{width:34px;height:34px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 
-/* Промокод Leslie goods */
-.promo{display:grid;grid-template-columns:1fr minmax(180px,24%);overflow:hidden;background:var(--sage2);margin:clamp(14px,2vw,24px) 0}
-.promo-copy{padding:clamp(22px,3vw,40px)}
-.promo-brand{font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
-.promo h2{font-family:Literata,serif;font-size:clamp(30px,3.2vw,48px);font-weight:500;line-height:1.12;margin:0 0 18px}
-.promo-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.promo-code{font:600 24px Onest,sans-serif;background:var(--ink);color:var(--paper);border-radius:12px;padding:10px 20px;letter-spacing:.03em}
-.promo-photo{width:100%;height:100%;object-fit:contain;background:#efcc99;object-position:50% 50%;min-height:235px}
-.promo-hint{font-size:15px}.promo .btn{font-size:15px}
-@media(max-width:600px){.promo{grid-template-columns:1fr}.promo-photo{display:none}.promo-copy{padding:24px}.promo-actions{gap:12px}.promo h2{font-size:32px}.promo-hint{flex-basis:100%}.promo .btn{padding:12px 18px}}
-
+/* Компактный промокод Leslie goods */
+.promo{display:flex;align-items:center;gap:14px;max-width:480px;width:100%;padding:12px 16px;margin:20px 0 26px;background:var(--sage2);border-radius:18px;color:var(--ink);text-decoration:none;transition:background .2s}
+.promo:hover{background:#d3d9c2}.promo-photo{width:62px;height:76px;flex:0 0 62px;object-fit:contain;background:#efcc99;border-radius:10px}
+.promo-copy{flex:1;min-width:0}.promo-brand{font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px}
+.promo h2{font:500 22px/1.15 Literata,serif;margin:0 0 8px;letter-spacing:-.5px}
+.promo-code{display:inline-block;padding:4px 10px;margin-left:5px;border-radius:7px;background:var(--ink);color:var(--paper);font:600 14px Onest,sans-serif}.promo-hint{font-size:12px}.promo-go{font-size:22px;flex:none}
+.sec-top .promo{margin-top:0;margin-bottom:24px}
+@media(max-width:600px){.promo{gap:10px;padding:12px;max-width:100%}.promo-photo{width:48px;height:68px;flex-basis:48px}.promo h2{font-size:20px}.promo-brand{font-size:10px}.promo-go{font-size:20px}}
 </style>
 </head>
 <body>
@@ -1995,7 +1992,7 @@ function footer(){
 }
 
 /* ---------- страницы ---------- */
-function lesliePromo(){return `<section class="pan promo" aria-label="Скидка на лакомства Leslie goods"><div class="promo-copy"><div class="promo-brand">Хвостопедия × Leslie goods</div><h2>−15% на&nbsp;лакомства</h2><div class="promo-actions"><span class="promo-hint">По&nbsp;промокоду</span><span class="promo-code">xvost</span><a class="btn car" href="https://lesligoods.ru/" target="_blank" rel="noopener">В&nbsp;магазин <span class="ar">${ARR}</span></a></div></div><img class="promo-photo" src="img/m/leslie-0.webp" alt="Лакомства Leslie goods" loading="lazy"></section>`}
+function lesliePromo(){return `<a class="promo" href="https://lesligoods.ru/" target="_blank" rel="noopener" aria-label="Leslie goods: скидка 15% по промокоду xvost"><img class="promo-photo" src="img/m/leslie-0.webp" alt="" loading="lazy"><div class="promo-copy"><div class="promo-brand">Leslie goods</div><h2>−15% на&nbsp;лакомства</h2><span class="promo-hint">Промокод <span class="promo-code">xvost</span></span></div><span class="promo-go" aria-hidden="true">↗</span></a>`}
 
 function home(){
   const chips=['адаптация','первое время','стресс','прогулки','сон'];
@@ -2110,8 +2107,7 @@ function sectionPage(id){
   const t=SEC[id]; if(!t) return notFound();
   const list=bySec(id), i=GRID.findIndex(s=>s[0]===id);
   const others=SECTIONS.filter(s=>s[0]!==id&&bySec(s[0]).length).concat(SECTIONS.filter(s=>s[0]!==id&&!bySec(s[0]).length)).slice(0,7);
-  return `<section class="sec-top"><div class="pan"><div class="crumbs"><a href="#/">Хвостопедия</a><span>/</span><a href="#/razdely">Разделы</a></div><div class="lbl" style="color:var(--caramel);margin-bottom:14px">${i<0?'Вступление':'Раздел '+String(i+1).padStart(2,'0')+'/'}</div><h1 class="page-title">${t}</h1><div class="facts"><span>${cnt(list.length)}</span></div></div><div class="sec-img">${media(id)}</div></section>
-  ${id==='pitanie'?lesliePromo():''}
+  return `<section class="sec-top"><div class="pan">${id==='pitanie'?lesliePromo():''}<div class="crumbs"><a href="#/">Хвостопедия</a><span>/</span><a href="#/razdely">Разделы</a></div><div class="lbl" style="color:var(--caramel);margin-bottom:14px">${i<0?'Вступление':'Раздел '+String(i+1).padStart(2,'0')+'/'}</div><h1 class="page-title">${t}</h1><div class="facts"><span>${cnt(list.length)}</span></div></div><div class="sec-img">${media(id)}</div></section>
   <section class="pan blk">${list.length||SUBS[id]?subBlock(id,list):`<div class="soon rv"><div><h3>Материалы скоро появятся</h3><p>Мы собираем статьи специалистов для этого раздела</p></div><a class="btn" href="#/razdely">Все разделы <span class="ar">${ARR}</span></a></div>`}
   <div class="next-secs rv">${others.map(([sid,st])=>`<a class="chip" href="#/r/${sid}">${st}</a>`).join('')}</div></section>${footer()}`;
 }
