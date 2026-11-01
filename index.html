@@ -648,6 +648,13 @@ footer{background:var(--caramel);color:var(--ink);border-radius:var(--r);padding
 @media (max-width:400px){header nav a{padding:8px 9px}.logo{font-size:16px;margin-right:4px}.nav-search{width:34px;height:34px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 
+.home-promos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap)}
+.home-promos .promo{max-width:none;margin:0;min-width:0}
+.promo.promo-tg{background:var(--caramel2)}
+.promo.promo-tg:hover{background:#e5bb8b}
+.promo-tg-icon{display:flex;align-items:center;justify-content:center;width:62px;height:76px;flex:0 0 62px;border-radius:10px;background:var(--paper);font-size:36px}
+@media(max-width:600px){.home-promos{grid-template-columns:minmax(0,1fr)}.promo-tg-icon{width:48px;height:68px;flex-basis:48px;font-size:30px}}
+
 /* Компактный промокод Leslie goods */
 .promo{display:flex;align-items:center;gap:14px;max-width:480px;width:100%;padding:12px 16px;margin:20px 0 26px;background:var(--sage2);border-radius:18px;color:var(--ink);text-decoration:none;transition:background .2s}
 .promo:hover{background:#d3d9c2}.promo-photo{width:62px;height:76px;flex:0 0 62px;object-fit:contain;background:#efcc99;border-radius:10px}
@@ -1992,6 +1999,7 @@ function footer(){
 }
 
 /* ---------- страницы ---------- */
+function telegramPromo(){return `<a class="promo promo-tg" href="https://t.me/hvostopediya" target="_blank" rel="noopener" aria-label="Телеграм-канал Хвостопедии"><span class="promo-tg-icon" aria-hidden="true"><i class="ph-duotone ph-telegram-logo"></i></span><div class="promo-copy"><div class="promo-brand">Хвостопедия</div><h2>Наш телеграм-канал</h2><span class="promo-hint">Подписаться на&nbsp;Хвостопедию</span></div><span class="promo-go" aria-hidden="true">↗</span></a>`}
 function lesliePromo(){return `<a class="promo" href="https://lesligoods.ru/" target="_blank" rel="noopener" aria-label="Leslie goods: скидка 15% по промокоду xvost"><img class="promo-photo" src="img/m/leslie-0.webp" alt="" loading="lazy"><div class="promo-copy"><div class="promo-brand">Leslie goods</div><h2>−15% на&nbsp;лакомства</h2><span class="promo-hint">Промокод <span class="promo-code">xvost</span></span></div><span class="promo-go" aria-hidden="true">↗</span></a>`}
 
 function home(){
@@ -2048,7 +2056,7 @@ function home(){
     </div>
   </section>
 
-  ${lesliePromo()}
+  <div class="home-promos">${telegramPromo()}${lesliePromo()}</div>
 
   <section class="pan blk intro" id="nachalo">
     <div class="in-q rv">
