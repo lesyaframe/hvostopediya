@@ -648,13 +648,6 @@ footer{background:var(--caramel);color:var(--ink);border-radius:var(--r);padding
 @media (max-width:400px){header nav a{padding:8px 9px}.logo{font-size:16px;margin-right:4px}.nav-search{width:34px;height:34px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 
-.home-promos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap)}
-.home-promos .promo{max-width:none;margin:0;min-width:0}
-.promo.promo-tg{background:var(--caramel2)}
-.promo.promo-tg:hover{background:#e5bb8b}
-.promo-tg-icon{display:flex;align-items:center;justify-content:center;width:62px;height:76px;flex:0 0 62px;border-radius:10px;background:var(--paper);font-size:36px}
-@media(max-width:600px){.home-promos{grid-template-columns:minmax(0,1fr)}.promo-tg-icon{width:48px;height:68px;flex-basis:48px;font-size:30px}}
-
 /* Компактный промокод Leslie goods */
 .promo{display:flex;align-items:center;gap:14px;max-width:480px;width:100%;padding:12px 16px;margin:20px 0 26px;background:var(--sage2);border-radius:18px;color:var(--ink);text-decoration:none;transition:background .2s}
 .promo:hover{background:#d3d9c2}.promo-photo{width:62px;height:76px;flex:0 0 62px;object-fit:contain;background:#efcc99;border-radius:10px}
@@ -663,6 +656,18 @@ footer{background:var(--caramel);color:var(--ink);border-radius:var(--r);padding
 .promo-code{display:inline-block;padding:4px 10px;margin-left:5px;border-radius:7px;background:var(--ink);color:var(--paper);font:600 14px Onest,sans-serif}.promo-hint{font-size:12px}.promo-go{font-size:22px;flex:none}
 .sec-top .promo{margin-top:0;margin-bottom:24px}
 @media(max-width:600px){.promo{gap:10px;padding:12px;max-width:100%}.promo-photo{width:48px;height:68px;flex-basis:48px}.promo h2{font-size:20px}.promo-brand{font-size:10px}.promo-go{font-size:20px}}
+
+/* Баннеры на главной: тот же интервал, что между блоками. */
+.home-promos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap)}
+.home-promos .promo{max-width:none;margin:0;height:100%}
+.promo-symbol{display:grid;place-items:center;width:62px;height:76px;flex:0 0 62px;background:#cbd9df;border-radius:10px}
+.promo-symbol svg{width:35px;height:35px;fill:var(--ink)}
+@media(max-width:700px){.home-promos{grid-template-columns:1fr}.promo-symbol{width:48px;height:68px;flex-basis:48px}}
+#analytics-choice{position:fixed;left:16px;bottom:16px;z-index:80;width:min(570px,calc(100vw - 32px));padding:20px;background:var(--dark);color:var(--milk);border-radius:22px;box-shadow:0 8px 30px #0004;font-size:14px;line-height:1.5}
+#analytics-choice p{margin:0 0 14px}#analytics-choice a{text-decoration:underline;color:var(--caramel2)}
+#analytics-choice>div{display:flex;gap:10px;flex-wrap:wrap}#analytics-choice button{background:var(--caramel);color:var(--paper);border-radius:99px;padding:10px 18px;cursor:pointer}
+#analytics-choice button[data-consent=denied]{background:var(--milk);color:var(--ink)}
+
 </style>
 </head>
 <body>
@@ -1896,14 +1901,19 @@ MATERIALS.push(...MORE6);
 
 MATERIALS.push({"id": "poiskovye-igry-doma", "title": "Поисковые игры с собакой: как начать дома", "lead": "Зачем собаке искать, как ввести сигнал «ищи» и какие игры попробовать дома, когда прогулки стали короче.", "sec": "vospitanie", "sub": "Игры и игрушки", "author": "shmakova", "type": "Статья", "html": "<h2 id=\"s1\">Зачем нужны поисковые игры</h2>\n<p>В дождливую погоду прогулки нередко становятся короче. Поисковые игры помогают занять собаку дома и не требуют от владельца много сил.</p>\n<p>Работа носом даёт ментальную нагрузку, помогает переключиться и создаёт много маленьких побед, благодаря которым собака становится увереннее.</p>\n<div class=\"tblw\"><table><thead><tr><th>Где используем</th><th>Для чего</th></tr></thead><tbody><tr><td>Дома</td><td>Ментальная нагрузка без хаоса и перевозбуждения</td></tr><tr><td>На расстоянии от раздражителя</td><td>Переключение внимания на поиск и проводника</td></tr><tr><td>В ветклинике или груминг-салоне</td><td>Знакомое спокойное занятие в непривычной обстановке</td></tr><tr><td>В тревожной ситуации</td><td>Понятная последовательность действий, на которую собака может опереться</td></tr><tr><td>Для новых впечатлений</td><td>Исследование разных запахов, предметов и фактур</td></tr></tbody></table></div>\n<h2 id=\"s2\">Не начнёт ли собака подбирать всё подряд</h2>\n<p>Поиск еды по сигналу и самостоятельное подбирание на улице — разные задачи. Поисковые игры могут помогать работе с неподбором: они дают выход пищедобывательной потребности и учат ждать разрешающего сигнала.</p>\n<p>Правило игры: брать с пола или земли можно после сигнала проводника, а не просто потому, что там лежит еда.</p>\n<h2 id=\"s3\">Как начать</h2>\n<ol><li>Выберите понятный сигнал, например «ищи!».</li><li>Сначала произнесите его, затем на глазах у собаки положите или спрячьте кусочек.</li><li>Дайте собаке найти и съесть лакомство.</li><li>Когда правило усвоено, усложняйте: попросите подождать, спрячьте кусочек вне поля зрения и отпустите в поиск по сигналу.</li></ol>\n<p>Начинайте с лёгких заданий и повышайте сложность постепенно.</p>\n<h2 id=\"s4\">Три игры дома</h2>\n<ul><li><b>Коробочный квест.</b> Спрячьте еду в картонных коробках со смятой бумагой.</li><li><b>Полотенце-рулет.</b> Заверните кусочки в скрученное полотенце, которое собака сможет развернуть носом и лапами.</li><li><b>Поиск на разных уровнях.</b> Разложите лакомства не только на полу, но и на доступных перекладинах стульев или нижних полках.</li></ul>\n<p>Искать можно также игрушки и бытовые предметы. Подбирайте задания по возможностям собаки: такие игры подходят для разных возрастов.</p>\n<p class=\"src\">Источник: Екатерина Шмакова, <a href=\"https://t.me/psypesika/255\" target=\"_blank\" rel=\"noopener\">канал «Пёсика: заметки зоопсихолога»</a>. Текст сокращён для сайта.</p>\n"});
 
-/* Юридические документы сайта. Редакция 30.10.2026 */
+/* Юридические документы сайта. Редакция 01.11.2026 */
 const DOCS={
  konfidencialnost:{t:'Политика конфиденциальности',h:`
 <p>Эта политика объясняет, какие данные могут обрабатываться, когда вы пользуетесь сайтом «Хвостопедия» (hvostopedia.ru, а также lesyaframe.github.io/hvostopediya), и как мы с ними обращаемся. Политика составлена с учётом Федерального закона № 152-ФЗ «О персональных данных».</p>
 <h2>Кто мы</h2>
 <p>«Хвостопедия» задумана как бесплатный некоммерческий проект, база знаний о жизни с собакой. Сайт ведут создатели проекта, Мира и Леся. По любым вопросам о данных пишите в Telegram: <a href="https://t.me/miroslavakamenskaya" target="_blank" rel="noopener">@miroslavakamenskaya</a> или <a href="https://t.me/LesyaLesya8" target="_blank" rel="noopener">@LesyaLesya8</a>.</p>
-<h2>Что мы не собираем</h2>
-<p>На сайте нет регистрации, личного кабинета, форм для заполнения, рассылок, рекламы, счётчиков аналитики (Яндекс Метрики, Google Analytics и подобных) и cookie для отслеживания. Мы не знаем, кто именно заходит на сайт, и не составляем профили посетителей.</p>
+<h2>Статистика сайта</h2>
+<p>После вашего разрешения мы подключаем Яндекс Метрику. Она помогает считать посещения, просмотры разделов и материалов, скачивания файлов и переходы по ссылкам. Используем карту кликов и Вебвизор, который записывает действия на открытых страницах сайта.</p>
+<p>Метрика может обрабатывать сведения о браузере и устройстве, IP-адрес, источнике перехода, открытых страницах и действиях, а также использовать cookie и идентификаторы браузера. Мы не устанавливаем личность посетителя по имени, телефону или адресу электронной почты. Текст, вводимый в поиск на сайте, не передаём в пользовательских событиях; запись ввода в поля отключена.</p>
+<p>Сервис предоставляет ООО «ЯНДЕКС». Подробнее: <a href="https://yandex.ru/legal/confidential/" target="_blank" rel="noopener">политика конфиденциальности Яндекса</a> и <a href="https://yandex.ru/support/metrica/ru/general/confidential-data" target="_blank" rel="noopener">информация о данных в Метрике</a>.</p>
+<p>До выбора «Разрешить» счётчик не загружается. Кнопка «Без аналитики» сохраняет отказ; сайт и все материалы продолжают работать. Изменить выбор можно по ссылке «Настройки аналитики» внизу страницы. Отказ останавливает дальнейший сбор на сайте, но не удаляет ранее переданную статистику и уже сохранённые cookie.</p>
+<h2>Что мы не запрашиваем</h2>
+<p>На сайте нет регистрации, личного кабинета и форм, в которых требуется сообщать имя, телефон или электронную почту.</p>
 <h2>Технические данные хостинга</h2>
 <p>Сайт размещён на сервисе GitHub Pages (GitHub, Inc., США). Когда вы открываете страницу, ваш браузер отправляет запрос на сервер хостинга. Сервер, как и любой веб-сервер, получает технические сведения: IP-адрес, тип браузера и устройства, адрес запрошенной страницы, дату и время запроса. Они нужны, чтобы доставить страницу и защитить сайт от атак.</p>
 <p>Эти сведения обрабатывает хостинг-провайдер на своих серверах, в том числе за пределами России, по своим правилам: <a href="https://docs.github.com/ru/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">Заявление о конфиденциальности GitHub</a>. У нас нет доступа к этим журналам, мы их не запрашиваем и не используем.</p>
@@ -1921,9 +1931,11 @@ const DOCS={
  cookie:{t:'Политика cookie',h:`
 <p>Cookie называют небольшие файлы, которые сайт может сохранять в браузере. Обычно их используют, чтобы запоминать вход в аккаунт, настройки, а также для аналитики и рекламы.</p>
 <h2>Какие cookie использует «Хвостопедия»</h2>
-<p>Никаких. Сайт не устанавливает cookie: ни свои, ни сторонние. У нас нет аналитики, рекламы, кнопок соцсетей и встроенных виджетов, которые могли бы их ставить.</p>
+<p>Яндекс Метрика подключается только после вашего разрешения. Сервис может использовать cookie для статистики посещений, просмотров и действий. Включены карта кликов и Вебвизор. При выборе «Без аналитики» счётчик не загружается.</p>
 <h2>Что мы всё же сохраняем в браузере</h2>
-<p>Когда вы нажимаете «Понятно» на плашке о cookie, сайт запоминает это в хранилище браузера (localStorage) под названием <code>hvost-ck</code>, чтобы не показывать плашку снова. Там хранится только отметка «плашка закрыта», без каких-либо сведений о вас. Эта запись никуда не передаётся и остаётся только на вашем устройстве.</p>
+<p>В localStorage сохраняется ваш выбор по аналитике: <code>hvost-analytics-v1</code>, значение «granted» или «denied». Это настройка браузера, а не имя или контактные данные. Ранее сайт мог сохранить <code>hvost-ck</code> для закрытия старой информационной плашки; эта отметка не считается согласием на аналитику.</p>
+<h2>Как изменить выбор</h2>
+<p>Откройте «Настройки аналитики» внизу любой страницы и выберите «Разрешить» или «Без аналитики». Отказ останавливает дальнейший сбор на сайте. Для удаления сохранённых cookie и настроек очистите данные сайта в браузере.</p>
 <h2>Как это удалить</h2>
 <p>Очистите данные сайта в настройках браузера. Тогда плашка появится снова при следующем визите.</p>
 <h2>Сторонние сайты</h2>
@@ -1995,12 +2007,13 @@ function footer(){
       <a href="https://instagram.com/lesya.frame" target="_blank" rel="noopener"><i class="ph-duotone ph-instagram-logo"></i>@lesya.frame</a>
       <a href="https://t.me/miroslavakamenskaya" target="_blank" rel="noopener"><i class="ph-duotone ph-telegram-logo"></i>@miroslavakamenskaya</a>
       <a href="https://t.me/LesyaLesya8" target="_blank" rel="noopener"><i class="ph-duotone ph-telegram-logo"></i>@LesyaLesya8</a>
-    </div></div><div class="f-cols">${cols.map(c=>`<div>${c.map(([id,t])=>`<a href="#/r/${id}">${t}</a>`).join('')}</div>`).join('')}</div></div><div class="f-low">Материалы публикуются с&nbsp;разрешения авторов<div class="f-docs"><a href="#/dok/konfidencialnost">Политика конфиденциальности</a><a href="#/dok/cookie">Политика cookie</a><a href="#/dok/soglashenie">Пользовательское соглашение</a><a href="https://lesyaframe.github.io/sait/" target="_blank" rel="noopener">Разработка сайта</a></div></div></footer>`;
+    </div></div><div class="f-cols">${cols.map(c=>`<div>${c.map(([id,t])=>`<a href="#/r/${id}">${t}</a>`).join('')}</div>`).join('')}</div></div><div class="f-low">Материалы публикуются с&nbsp;разрешения авторов<div class="f-docs"><a href="#/dok/konfidencialnost">Политика конфиденциальности</a><a href="#/dok/cookie">Политика cookie</a><a href="#" data-analytics-settings>Настройки аналитики</a><a href="#/dok/soglashenie">Пользовательское соглашение</a></div></div></footer>`;
 }
 
 /* ---------- страницы ---------- */
-function telegramPromo(){return `<a class="promo promo-tg" href="https://t.me/hvostopediya" target="_blank" rel="noopener" aria-label="Телеграм-канал Хвостопедии"><span class="promo-tg-icon" aria-hidden="true"><i class="ph-duotone ph-telegram-logo"></i></span><div class="promo-copy"><div class="promo-brand">Хвостопедия</div><h2>Наш телеграм-канал</h2><span class="promo-hint">Подписаться на&nbsp;Хвостопедию</span></div><span class="promo-go" aria-hidden="true">↗</span></a>`}
 function lesliePromo(){return `<a class="promo" href="https://lesligoods.ru/" target="_blank" rel="noopener" aria-label="Leslie goods: скидка 15% по промокоду xvost"><img class="promo-photo" src="img/m/leslie-0.webp" alt="" loading="lazy"><div class="promo-copy"><div class="promo-brand">Leslie goods</div><h2>−15% на&nbsp;лакомства</h2><span class="promo-hint">Промокод <span class="promo-code">xvost</span></span></div><span class="promo-go" aria-hidden="true">↗</span></a>`}
+
+function telegramPromo(){return `<a class="promo promo-telegram" href="https://t.me/hvostopediya" target="_blank" rel="noopener"><span class="promo-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m21.6 3.4-3.4 16c-.2 1.1-.9 1.3-1.8.8l-5.2-3.9-2.5 2.4c-.3.3-.5.5-1 .5l.4-5.3 9.6-8.7c.4-.4-.1-.6-.6-.3L5.2 12.4.2 10.8c-1.1-.4-1.1-1.1.2-1.6L20 1.7c.9-.3 1.7.2 1.4 1.7Z"/></svg></span><div class="promo-copy"><div class="promo-brand">Хвостопедия</div><h2>Мы в&nbsp;Telegram</h2><span class="promo-hint">Подписаться на&nbsp;канал</span></div><span class="promo-go" aria-hidden="true">↗</span></a>`}
 
 function home(){
   const chips=['адаптация','первое время','стресс','прогулки','сон'];
@@ -2180,7 +2193,7 @@ function docPage(id){
   return `<section class="pan blk" style="padding-top:120px"><div class="crumbs"><a href="#/">Хвостопедия</a><span>/</span><span>Документы</span></div>
   <h1 class="page-title">${d.t}</h1>
   <div class="doc-nav">${Object.entries(DOCS).map(([k,x])=>`<a href="#/dok/${k}" class="${k===id?'on':''}">${x.t}</a>`).join('')}</div>
-  <div class="doc">${d.h}<p class="upd">Редакция от&nbsp;30&nbsp;октября 2026&nbsp;года</p></div></section>${footer()}`;
+  <div class="doc">${d.h}<p class="upd">Редакция от&nbsp;1&nbsp;ноября 2026&nbsp;года</p></div></section>${footer()}`;
 }
 function notFound(){return `<section class="pan blk" style="min-height:80svh;display:flex;flex-direction:column;justify-content:center"><div class="lbl" style="color:var(--caramel)">Ой</div><h1 class="page-title">Такой страницы нет</h1><div style="margin-top:28px"><a class="btn" href="#/">На главную ${ARR}</a></div></section>`}
 
@@ -2232,7 +2245,8 @@ function render(){
   if(nav==='razdely') requestAnimationFrame(()=>window.scrollTo(0,$('#razdely').offsetTop-12));
   if(nav==='kontakty') requestAnimationFrame(()=>window.scrollTo(0,$('#svyaz').offsetTop-84));
   document.title=p==='dok'&&DOCS[arg]?DOCS[arg].t+' · Хвостопедия':p==='m'?(MATERIALS.find(x=>x.id===arg)||{}).title+' · Хвостопедия':p==='r'&&SEC[arg]?SEC[arg]+' · Хвостопедия':'Хвостопедия';
-  bindSearch(); placeDog(); document.fonts&&document.fonts.ready.then(placeDog);
+  window.HvostStats?.pageView();
+  bindSearch(); document.querySelectorAll('input,textarea').forEach(el=>el.classList.add('ym-disable-keys')); placeDog(); document.fonts&&document.fonts.ready.then(placeDog);
   io&&io.disconnect();
   io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
   $$('.rv').forEach(el=>io.observe(el));
@@ -2257,11 +2271,7 @@ function placeDog(){placeMade();
 }
 addEventListener('resize',placeDog);
 addEventListener('hashchange',render);
-(()=>{let seen=null;try{seen=localStorage.getItem('hvost-ck')}catch(e){}
-  if(seen)return;const b=document.createElement('div');b.id='ck';
-  b.innerHTML='<span>Мы не&nbsp;используем рекламные и&nbsp;аналитические cookie и&nbsp;не&nbsp;собираем данные о&nbsp;вас. <a href="#/dok/cookie">Подробнее</a></span><button type="button">Понятно</button>';
-  document.body.appendChild(b);b.querySelector('button').onclick=()=>{b.hidden=true;try{localStorage.setItem('hvost-ck','1')}catch(e){}};
-  b.querySelector('a').onclick=()=>{};})();
+/* Выбор аналитики обрабатывается HvostStats. */
 addEventListener('scroll',()=>{
   $('#hdr').classList.toggle('small',scrollY>30);
   const r=$('#read'); const bar=$('#bar');
@@ -2273,6 +2283,76 @@ $('#logoPaw').innerHTML=PAW;
 /* прелоадер */
 $('#preWord').innerHTML=[...'Хвостопедия'].map((c,i)=>`<span style="animation-delay:${i*45}ms">${c}</span>`).join('');
 $('#preTrail').innerHTML=Array.from({length:6},(_,i)=>PAW.replace('<svg','<svg style="animation-delay:'+i*0.18+'s"')).join('');
+/* Яндекс Метрика: загрузка только после выбора посетителя. */
+window.HvostStats=(()=>{
+  const ID=113974090, KEY='hvost-analytics-v1';
+  let consent=null, active=false, loaded=false, last='', previous='', readSent=false;
+  const readChoice=()=>{try{return localStorage.getItem(KEY)}catch(e){return null}};
+  consent=readChoice();window['disableYaCounter'+ID]=consent!=='granted';
+  const send=(method,...args)=>{if(active&&typeof window.ym==='function')window.ym(ID,method,...args)};
+  function page(){
+    const match=(location.hash||'#/').match(/^#\/?(m|r|avtory|razdely|kontakty|dok)?(?:\/([a-z0-9-]+))?$/);
+    if(!match)return null; // Якоря оглавления не считаем новыми страницами.
+    let type=match[1]||'home',id=match[2]||'';
+    if(type==='r'&&id==='diabet')id='zdorove';
+    const material=type==='m'?MATERIALS.find(m=>m.id===id):null;
+    if(type==='m'&&!material||type==='r'&&!SEC[id])return null;
+    const path=type==='home'?'#/':'#/'+type+(id?'/'+id:'');
+    return {url:location.origin+location.pathname+path,type,id,material};
+  }
+  function pageView(){
+    const p=page();if(!p||!active||p.url===last)return;
+    const data={page_type:p.type};
+    if(p.material)Object.assign(data,{material:p.id,section:p.material.sec,author:p.material.author});
+    else if(p.type==='r')data.section=p.id;
+    send('hit',p.url,{title:document.title,referer:previous||undefined,params:data});
+    last=p.url;previous=p.url;readSent=false;
+  }
+  function start(){
+    if(!ID||active||consent!=='granted'||!/^https?:$/.test(location.protocol))return;
+    active=true;window['disableYaCounter'+ID]=false;
+    if(!window.ym){window.ym=function(){(window.ym.a=window.ym.a||[]).push(arguments)};window.ym.l=Date.now()}
+    send('init',{defer:true,clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true,trackHash:false});
+    if(!loaded){loaded=true;const s=document.createElement('script');s.async=true;s.src='https://mc.yandex.ru/metrika/tag.js';s.dataset.hvostMetrika='1';document.head.appendChild(s)}
+    pageView();
+  }
+  function choose(value){
+    if(!['granted','denied'].includes(value))return;
+    if(value==='denied'&&active)send('destruct');
+    consent=value;try{localStorage.setItem(KEY,value)}catch(e){}
+    if(value==='denied'){window['disableYaCounter'+ID]=true;active=false;last=''}else start();
+    document.getElementById('analytics-choice')?.remove();
+  }
+  function settings(){
+    if(document.getElementById('analytics-choice'))return;
+    const b=document.createElement('aside');b.id='analytics-choice';b.setAttribute('aria-label','Настройки аналитики');
+    b.innerHTML='<p>Разрешить аналитику? Она помогает понять, какие материалы полезнее и где сайт неудобен. Используем Яндекс Метрику, включая карту кликов и запись действий в Вебвизоре. <a href="#/dok/cookie">Подробнее</a></p><div><button type="button" data-consent="granted">Разрешить</button><button type="button" data-consent="denied">Без аналитики</button></div>';
+    b.addEventListener('click',e=>{const button=e.target.closest('[data-consent]');if(button)choose(button.dataset.consent)});
+    document.body.appendChild(b);if(typeof fixText==='function')fixText(b);
+  }
+  document.addEventListener('click',e=>{
+    const a=e.target.closest('a,button');if(!a)return;
+    if(a.hasAttribute('data-analytics-settings')){e.preventDefault();settings();return}
+    if(!active)return;
+    const p=page(),m=p?.material,params={page:p?.type||'',material:m?.id||'',author:m?.author||''};
+    let event='';
+    if(a.closest('.promo-telegram'))event='telegram_channel';
+    else if(a.closest('.promo')&&a.href?.includes('lesligoods.ru'))event='promo_click';
+    else if(a.hasAttribute('download'))event='pdf_download';
+    else if(a.dataset.to==='read')event='article_read';
+    else if(a.closest('.byline,.arow,.after .btns')&&/^https?:/.test(a.getAttribute('href')||''))event='author_link';
+    if(event){if(a.href){const u=new URL(a.href,location.href);params.link=u.origin+u.pathname}send('reachGoal',event,params)}
+  },true);
+  addEventListener('scroll',()=>{
+    if(!active||readSent)return;
+    const p=page(),article=document.querySelector('#read article');if(!p?.material||!article)return;
+    const rect=article.getBoundingClientRect();
+    if(rect.top<innerHeight&&rect.top+rect.height*.75<=innerHeight){readSent=true;send('reachGoal','read_75',{material:p.id,author:p.material.author,section:p.material.sec})}
+  },{passive:true});
+  if(ID){if(consent==='granted')queueMicrotask(start);else if(consent!=='denied')settings()}
+  return {pageView,settings};
+})();
+
 render();
 addEventListener('load',()=>setTimeout(()=>$('#pre').classList.add('out'),900));
 </script>
