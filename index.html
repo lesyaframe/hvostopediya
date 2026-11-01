@@ -722,10 +722,10 @@ const POS={"zdorove":"50% 45%","diabet":"50% 45%","adaptaciya":"50% 22%","rol-v-
 const KIND=Object.fromEntries(SECTIONS.map(s=>[s[0],{k:s[3],bg:s[4],img:s[5]||s[0]}]));
 const DARKBG=['#4A3328','var(--sage)','var(--caramel)'];
 /* картинка раздела: фото целиком, вырезанная собака на цветном фоне или только цвет с лапкой */
-/* обложка материала без своего фото: цветная плашка со значком раздела, цвет зависит от материала */
+/* обложки материалов: фотографии; карточки разделов используют прежнюю систему иконок */
 function cover(m){
-  const C=['var(--blush)','var(--sage2)','var(--caramel2)','#E9E1D3'];let h=0;for(const c of m.id)h=(h*31+c.charCodeAt(0))%997;
-  return `<span class="med textm cov" style="background:${C[h%C.length]}"><span class="pw"><i class="ph-duotone ph-${ICON[m.sec]||'paw-print'}"></i></span></span>`;
+  const src=m.img||AUTHORS[m.author]?.photo||'img/m/pamyatka.webp';
+  return `<span class="med"><img src="${src}" alt="" loading="lazy"></span>`;
 }
 function media(id,cls=''){
   const v=KIND[id], i=GRID.findIndex(s=>s[0]===id);
@@ -1959,6 +1959,53 @@ const DOCS={
 <p>Мы можем обновлять материалы, разделы и эти условия. Вопросы и предложения присылайте в Telegram: по сотрудничеству и публикации материалов <a href="https://t.me/miroslavakamenskaya" target="_blank" rel="noopener">@miroslavakamenskaya</a> (Мира), по работе сайта <a href="https://t.me/LesyaLesya8" target="_blank" rel="noopener">@LesyaLesya8</a> (Леся).</p>`},
 };
 
+// Фотографии обложек статей и проектов. Иконки разделов остаются без изменений.
+const ARTICLE_PHOTOS = {
+  "vozrast-i-kommunikaciya": "img/articles/vozrast-i-kommunikaciya.webp",
+  "shampun-gladkosherstnye": "img/articles/shampun-gladkosherstnye.webp",
+  "oshibki-vybora-shampunya": "img/articles/oshibki-vybora-shampunya.webp",
+  "gumannye-otnosheniya": "img/articles/gumannye-otnosheniya.webp",
+  "kommunikaciya": "img/articles/kommunikaciya.webp",
+  "vokalizaciya": "img/articles/vokalizaciya.webp",
+  "igrushki": "img/articles/igrushki.webp",
+  "prichiny-agressii": "img/articles/prichiny-agressii.webp",
+  "deti-i-sobaki-gayd": "img/articles/deti-i-sobaki-gayd.webp",
+  "ukusy-zmey": "img/articles/ukusy-zmey.webp",
+  "vneshnie-parazity": "img/articles/vneshnie-parazity.webp",
+  "kak-rabotaet-povedenie": "img/articles/kak-rabotaet-povedenie.webp",
+  "uroki-galimovoy": "img/articles/uroki-galimovoy.webp",
+  "podkast-vybor-shchenka": "img/articles/podkast-vybor-shchenka.webp",
+  "chto-pochitat": "img/articles/chto-pochitat.webp",
+  "obida-mest-styd": "img/articles/obida-mest-styd.webp",
+  "shchenok-kusaetsya": "img/articles/shchenok-kusaetsya.webp",
+  "yazyk-tela": "img/articles/yazyk-tela.webp",
+  "novyy-god-salyuty": "img/articles/novyy-god-salyuty.webp",
+  "trevoga-v-odinochestve": "img/articles/trevoga-v-odinochestve.webp",
+  "umotat-sobaku": "img/articles/umotat-sobaku.webp",
+  "lekciya-separacionnaya": "img/articles/lekciya-separacionnaya.webp",
+  "privyazannost-issledovaniya": "img/articles/privyazannost-issledovaniya.webp",
+  "nevidimaya-nit": "img/articles/nevidimaya-nit.webp",
+  "brish-privyazannost": "img/articles/brish-privyazannost.webp",
+  "osnovnoy-i-zapasnoy": "img/articles/osnovnoy-i-zapasnoy.webp",
+  "pamyatka-odinochestvo": "img/articles/pamyatka-odinochestvo.webp",
+  "perederzhka": "img/articles/perederzhka.webp",
+  "10-opor-povedenie": "img/articles/10-opor-povedenie.webp",
+  "lezhanka": "img/articles/lezhanka.webp",
+  "neuverennost": "img/articles/neuverennost.webp",
+  "perevozbuzhdenie-shchenka": "img/articles/perevozbuzhdenie-shchenka.webp",
+  "kak-rabotaet-bol": "img/articles/kak-rabotaet-bol.webp",
+  "bol-i-vnimanie": "img/articles/bol-i-vnimanie.webp",
+  "privivki-dlya-sobak": "img/articles/privivki-dlya-sobak.webp",
+  "profilaktika-glistov": "img/articles/profilaktika-glistov.webp",
+  "poiskovye-igry-doma": "img/articles/poiskovye-igry-doma.webp",
+  "vsya-sobaka-v-komplekse": "video/redhusky-vsya-sobaka.jpg",
+  "medvedica-dobrovolnoe-soglasie": "video/redhusky-medvedica.jpg",
+  "tri-simptoma": "video/tri-simptoma.jpg"
+};
+MATERIALS.forEach(m=>{if(!m.img&&ARTICLE_PHOTOS[m.id]){m.img=ARTICLE_PHOTOS[m.id];if(m.id==='tri-simptoma'||m.id==='vsya-sobaka-v-komplekse')m.imgPosition='50% 25%'}});
+Object.assign(AUTHORS.diabet,{photo:'img/articles/diabet-project.webp',ava:'img/articles/diabet-project.webp'});
+Object.assign(AUTHORS.vnemarshruta,{photo:'img/articles/vnemarshruta-project.webp',ava:'img/articles/vnemarshruta-project.webp'});
+Object.assign(AUTHORS['leslie-goods'],{photo:'img/m/leslie-0.webp',ava:'img/m/leslie-0.webp'});
 AKEYS.push(...Object.keys(AUTHORS).filter(k=>k!=='hvost').map((k,i)=>[k,i,MATERIALS.filter(m=>m.author===k).length]).filter(x=>x[2]>0).sort((a,b)=>b[2]-a[2]||a[1]-b[1]).map(x=>x[0]));
 
 /* ---------- утилиты ---------- */
@@ -1992,7 +2039,7 @@ function authorCard(id,mode){
 function matRow(m){
   const a=AUTHORS[m.author];
   const ava=a.photo?`<img class="ava" src="${a.photo}" alt="">`:`<span class="ava">${a.name[0]}</span>`;
-  return `<a class="mat rv" href="#/m/${m.id}"><span class="thumb">${m.img?`<span class="med"><img src="${m.img}" alt="" loading="lazy"></span>`:cover(m)}</span><div><span class="tag">${SEC[m.sec]} · ${m.type.toLowerCase()}</span><h3>${m.title}</h3><div class="sub">${m.lead}</div><div class="who">${ava}<span>${a.short} · ${minutes(m)} мин</span></div></div><span class="btn">Читать <span class="ar">${ARR}</span></span></a>`;
+  return `<a class="mat rv" href="#/m/${m.id}"><span class="thumb">${m.img?`<span class="med"><img src="${m.img}" style="object-position:${m.imgPosition||'50% 50%'}" alt="" loading="lazy"></span>`:cover(m)}</span><div><span class="tag">${SEC[m.sec]} · ${m.type.toLowerCase()}</span><h3>${m.title}</h3><div class="sub">${m.lead}</div><div class="who">${ava}<span>${a.short} · ${minutes(m)} мин</span></div></div><span class="btn">Читать <span class="ar">${ARR}</span></span></a>`;
 }
 function cards(){
   return GRID.map(([id,t,ic,kind],i)=>{const n=bySec(id).length,num=String(i+1).padStart(2,'0');
@@ -2173,7 +2220,7 @@ function articlePage(id){
       <h1>${m.title}</h1><p class="lead">${m.lead}</p>
       <div class="facts"><span>${m.type}</span><span>${minutes(m)} мин чтения</span><span>${SEC[m.sec]}</span></div>
       <div class="btns" style="margin-top:26px"><a class="btn car" href="#read" data-to="read">Читать <span class="ar">${ARR}</span></a>${m.pdf?`<a class="btn soft" href="${m.pdf}" download>Скачать PDF</a>`:''}</div></div>
-    <div class="art-right"><div class="art-img">${m.img?`<span class="med"><img src="${m.img}" alt=""></span>`:cover(m)}</div>${authorCard(m.author,'byline')}</div>
+    <div class="art-right"><div class="art-img">${m.img?`<span class="med"><img src="${m.img}" style="object-position:${m.imgPosition||'50% 50%'}" alt=""></span>`:cover(m)}</div>${authorCard(m.author,'byline')}</div>
   </section>
   <section class="pan paper art-wrap ${body.toc.length<2?'notoc':''}" id="read">
     ${body.toc.length<2?'':`<aside class="toc" id="toc"><b class="lbl">Содержание</b>${toc}</aside>`}
