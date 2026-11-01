@@ -445,6 +445,9 @@ footer{background:var(--caramel);color:var(--ink);border-radius:var(--r);padding
 .f-grid a.btn:hover{color:var(--paper)}
 .f-cols{display:grid;grid-template-columns:repeat(3,auto);gap:0 40px}
 .f-low{margin-top:36px;padding-top:18px;border-top:1px solid rgba(47,33,26,.2);font-size:13px}
+.f-credit{display:inline-flex;align-items:center;gap:12px;margin-top:20px;padding:10px 18px;border-radius:99px;background:var(--ink);color:var(--paper);font-size:13px;font-weight:500;transition:background .2s,color .2s}
+.f-credit:hover{background:var(--paper);color:var(--ink)}
+.f-credit:focus-visible{outline:2px solid var(--paper);outline-offset:4px}
 
 /* ---------- раздел ---------- */
 .sec-top{display:grid;grid-template-columns:1.2fr 1fr;gap:var(--gap);min-height:calc(78svh)}
@@ -2054,7 +2057,7 @@ function footer(){
       <a href="https://instagram.com/lesya.frame" target="_blank" rel="noopener"><i class="ph-duotone ph-instagram-logo"></i>@lesya.frame</a>
       <a href="https://t.me/miroslavakamenskaya" target="_blank" rel="noopener"><i class="ph-duotone ph-telegram-logo"></i>@miroslavakamenskaya</a>
       <a href="https://t.me/LesyaLesya8" target="_blank" rel="noopener"><i class="ph-duotone ph-telegram-logo"></i>@LesyaLesya8</a>
-    </div></div><div class="f-cols">${cols.map(c=>`<div>${c.map(([id,t])=>`<a href="#/r/${id}">${t}</a>`).join('')}</div>`).join('')}</div></div><div class="f-low">Материалы публикуются с&nbsp;разрешения авторов<div class="f-docs"><a href="#/dok/konfidencialnost">Политика конфиденциальности</a><a href="#/dok/cookie">Политика cookie</a><a href="#" data-analytics-settings>Настройки аналитики</a><a href="#/dok/soglashenie">Пользовательское соглашение</a></div></div></footer>`;
+    </div></div><div class="f-cols">${cols.map(c=>`<div>${c.map(([id,t])=>`<a href="#/r/${id}">${t}</a>`).join('')}</div>`).join('')}</div></div><div class="f-low">Материалы публикуются с&nbsp;разрешения авторов<div class="f-docs"><a href="#/dok/konfidencialnost">Политика конфиденциальности</a><a href="#/dok/cookie">Политика cookie</a><a href="#" data-analytics-settings>Настройки аналитики</a><a href="#/dok/soglashenie">Пользовательское соглашение</a></div><a class="f-credit" href="https://lesyaframe.github.io/sait/" target="_blank" rel="noopener">Разработка сайта <span aria-hidden="true">↗</span></a></div></footer>`;
 }
 
 /* ---------- страницы ---------- */
